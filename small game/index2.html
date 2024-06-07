@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Typing Game</title>
+   <link rel="stylesheet" href="style.css">
+
+</head>
+<body id="body">
+
+   <div class="logo">
+    <img src="css/as - Copy.jpg">
+   </div>
+
+    <h1 id="firstTag">Typing Game</h1> 
+    <div id="gameSection">
+        <h2 id="display">Key</h2>
+
+        <p id="Inputs">
+            Correct Inputs : <span id="correct">0</span>
+            Wrong Input : <span id="wrong">0</span>
+        </p>
+    </div>
+
+    <script>
+
+        function randomLetter(){
+            const alphabert = 'abcdefghijklmnopqrstuvwxyz';
+            const randomIndex = Math.floor(Math.random() * alphabert.length);
+
+            return alphabert[randomIndex];
+        }
+
+        const display = document.getElementById("display");
+        const correct = document.getElementById("correct");
+        const wrong = document.getElementById("wrong");
+
+        display.innerHTML = randomLetter();
+
+        document.getElementById('body').addEventListener('keyup', function(e){
+            
+
+            if(display.innerHTML == e.key){
+
+                console.log("OK");
+                correct.innerHTML++;
+
+            }else{
+
+                console.log("No");
+                wrong.innerHTML++;
+            }
+
+            display.innerHTML = randomLetter();
+        });
+
+    </script>
+    
+</body>
+</html>
